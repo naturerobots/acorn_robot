@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>low_description</name>
+  <version>1.0.0</version>
+  <description>The low_description package</description>
+
+  <maintainer email="spuetz@uos.de">Sebastian Pütz</maintainer>
+
+  <license>BSD</license>
+
+  <author email="spuetz@uos.de">Sebastian Pütz</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>uos_common_urdf</exec_depend>
+</package>
