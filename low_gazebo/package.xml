@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>low_gazebo</name>
+  <version>1.0.0</version>
+  <description>
+    Launch files for starting up low in the Gazebo simulator.
+  </description>
+  <author email="pgehricke@uos.de">Philipp Gehricke</author>
+  <author email="kna@uos.de">Kyounghwa Na</author>
+  <author email="papriggemeye@uos.de">Patrice Priggemeyer</author>
+  <maintainer email="pgehricke@uos.de">Philipp Gehricke</maintainer>
+  <license>BSD</license>
+
+  <run_depend>low_description</run_depend>
+  <run_depend>low_camera</run_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>diffdrive_gazebo_plugin</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>uos_gazebo_worlds</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
