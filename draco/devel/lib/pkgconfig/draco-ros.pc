@@ -1,0 +1,8 @@
+prefix=/home/steffen/low_robot/draco/devel
+
+Name: draco-ros
+Description: Description of draco-ros
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/steffen/low_robot/draco/devel/lib 
+Requires: 
