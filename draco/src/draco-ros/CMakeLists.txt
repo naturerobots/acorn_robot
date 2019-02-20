@@ -198,6 +198,10 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(Test src/test.cpp)
-target_link_libraries(Test ${catkin_LIBRARIES})
-add_dependencies(Test draco-ros_generate_messages_cpp)
+add_executable(encoder src/encoder.cpp)
+target_link_libraries(encoder ${catkin_LIBRARIES})
+add_dependencies(encoder draco-ros_generate_messages_cpp)
+
+add_executable(decoder src/decoder.cpp)
+target_link_libraries(decoder ${catkin_LIBRARIES})
+add_dependencies(decoder draco-ros_generate_messages_cpp)

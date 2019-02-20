@@ -66,6 +66,18 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -120,18 +132,6 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -196,6 +196,21 @@ roscpp_generate_messages_py/fast:
 .PHONY : roscpp_generate_messages_py/fast
 
 # Convenience name for target.
+draco-ros/CMakeFiles/decoder.dir/rule:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/decoder.dir/rule
+.PHONY : draco-ros/CMakeFiles/decoder.dir/rule
+
+# Convenience name for target.
+decoder: draco-ros/CMakeFiles/decoder.dir/rule
+
+.PHONY : decoder
+
+# fast build rule for target.
+decoder/fast:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/decoder.dir/build.make draco-ros/CMakeFiles/decoder.dir/build
+.PHONY : decoder/fast
+
+# Convenience name for target.
 draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
 	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 .PHONY : draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
@@ -209,6 +224,21 @@ rosgraph_msgs_generate_messages_eus: draco-ros/CMakeFiles/rosgraph_msgs_generate
 rosgraph_msgs_generate_messages_eus/fast:
 	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_nodejs: draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 draco-ros/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -361,36 +391,6 @@ std_msgs_generate_messages_eus/fast:
 .PHONY : std_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-draco-ros/CMakeFiles/Test.dir/rule:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/Test.dir/rule
-.PHONY : draco-ros/CMakeFiles/Test.dir/rule
-
-# Convenience name for target.
-Test: draco-ros/CMakeFiles/Test.dir/rule
-
-.PHONY : Test
-
-# fast build rule for target.
-Test/fast:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/Test.dir/build.make draco-ros/CMakeFiles/Test.dir/build
-.PHONY : Test/fast
-
-# Convenience name for target.
 draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
 	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 .PHONY : draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
@@ -405,32 +405,74 @@ std_msgs_generate_messages_lisp/fast:
 	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
-src/test.o: src/test.cpp.o
+# Convenience name for target.
+draco-ros/CMakeFiles/encoder.dir/rule:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f CMakeFiles/Makefile2 draco-ros/CMakeFiles/encoder.dir/rule
+.PHONY : draco-ros/CMakeFiles/encoder.dir/rule
 
-.PHONY : src/test.o
+# Convenience name for target.
+encoder: draco-ros/CMakeFiles/encoder.dir/rule
+
+.PHONY : encoder
+
+# fast build rule for target.
+encoder/fast:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/encoder.dir/build.make draco-ros/CMakeFiles/encoder.dir/build
+.PHONY : encoder/fast
+
+src/decoder.o: src/decoder.cpp.o
+
+.PHONY : src/decoder.o
 
 # target to build an object file
-src/test.cpp.o:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/Test.dir/build.make draco-ros/CMakeFiles/Test.dir/src/test.cpp.o
-.PHONY : src/test.cpp.o
+src/decoder.cpp.o:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/decoder.dir/build.make draco-ros/CMakeFiles/decoder.dir/src/decoder.cpp.o
+.PHONY : src/decoder.cpp.o
 
-src/test.i: src/test.cpp.i
+src/decoder.i: src/decoder.cpp.i
 
-.PHONY : src/test.i
+.PHONY : src/decoder.i
 
 # target to preprocess a source file
-src/test.cpp.i:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/Test.dir/build.make draco-ros/CMakeFiles/Test.dir/src/test.cpp.i
-.PHONY : src/test.cpp.i
+src/decoder.cpp.i:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/decoder.dir/build.make draco-ros/CMakeFiles/decoder.dir/src/decoder.cpp.i
+.PHONY : src/decoder.cpp.i
 
-src/test.s: src/test.cpp.s
+src/decoder.s: src/decoder.cpp.s
 
-.PHONY : src/test.s
+.PHONY : src/decoder.s
 
 # target to generate assembly for a file
-src/test.cpp.s:
-	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/Test.dir/build.make draco-ros/CMakeFiles/Test.dir/src/test.cpp.s
-.PHONY : src/test.cpp.s
+src/decoder.cpp.s:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/decoder.dir/build.make draco-ros/CMakeFiles/decoder.dir/src/decoder.cpp.s
+.PHONY : src/decoder.cpp.s
+
+src/encoder.o: src/encoder.cpp.o
+
+.PHONY : src/encoder.o
+
+# target to build an object file
+src/encoder.cpp.o:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/encoder.dir/build.make draco-ros/CMakeFiles/encoder.dir/src/encoder.cpp.o
+.PHONY : src/encoder.cpp.o
+
+src/encoder.i: src/encoder.cpp.i
+
+.PHONY : src/encoder.i
+
+# target to preprocess a source file
+src/encoder.cpp.i:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/encoder.dir/build.make draco-ros/CMakeFiles/encoder.dir/src/encoder.cpp.i
+.PHONY : src/encoder.cpp.i
+
+src/encoder.s: src/encoder.cpp.s
+
+.PHONY : src/encoder.s
+
+# target to generate assembly for a file
+src/encoder.cpp.s:
+	cd /home/steffen/low_robot/draco/build && $(MAKE) -f draco-ros/CMakeFiles/encoder.dir/build.make draco-ros/CMakeFiles/encoder.dir/src/encoder.cpp.s
+.PHONY : src/encoder.cpp.s
 
 # Help Target
 help:
@@ -439,10 +481,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... list_install_components"
+	@echo "... install"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... decoder"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... edit_cache"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
@@ -455,15 +500,16 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... Test"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... encoder"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... install"
-	@echo "... src/test.o"
-	@echo "... src/test.i"
-	@echo "... src/test.s"
+	@echo "... src/decoder.o"
+	@echo "... src/decoder.i"
+	@echo "... src/decoder.s"
+	@echo "... src/encoder.o"
+	@echo "... src/encoder.i"
+	@echo "... src/encoder.s"
 .PHONY : help
 
 

@@ -309,6 +309,19 @@ roscpp_generate_messages_py/fast:
 .PHONY : roscpp_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named decoder
+
+# Build rule for target.
+decoder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 decoder
+.PHONY : decoder
+
+# fast build rule for target.
+decoder/fast:
+	$(MAKE) -f draco-ros/CMakeFiles/decoder.dir/build.make draco-ros/CMakeFiles/decoder.dir/build
+.PHONY : decoder/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -320,6 +333,19 @@ rosgraph_msgs_generate_messages_eus: cmake_check_build_system
 rosgraph_msgs_generate_messages_eus/fast:
 	$(MAKE) -f draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
@@ -452,32 +478,6 @@ std_msgs_generate_messages_eus/fast:
 .PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make draco-ros/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named Test
-
-# Build rule for target.
-Test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test
-.PHONY : Test
-
-# fast build rule for target.
-Test/fast:
-	$(MAKE) -f draco-ros/CMakeFiles/Test.dir/build.make draco-ros/CMakeFiles/Test.dir/build
-.PHONY : Test/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -489,6 +489,19 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 std_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make draco-ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named encoder
+
+# Build rule for target.
+encoder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 encoder
+.PHONY : encoder
+
+# fast build rule for target.
+encoder/fast:
+	$(MAKE) -f draco-ros/CMakeFiles/encoder.dir/build.make draco-ros/CMakeFiles/encoder.dir/build
+.PHONY : encoder/fast
 
 # Help Target
 help:
@@ -514,7 +527,9 @@ help:
 	@echo "... gtest_main"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... decoder"
 	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_cpp"
@@ -525,9 +540,8 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... Test"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... encoder"
 .PHONY : help
 
 

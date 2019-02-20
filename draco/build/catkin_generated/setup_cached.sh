@@ -7,4 +7,5 @@
 # new environment variables
 
 # modified environment variables
+export PATH="/opt/ros/kinetic/bin:/home/steffen/bin:/home/steffen/.local/bin:/home/steffen/bin:/home/steffen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 export PWD="/home/steffen/low_robot/draco/build"
