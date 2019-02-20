@@ -16,7 +16,7 @@
     <color rgba="0 0 0 1"/>
   </material>
 
-  <xacro:include filename="$(find realsense2_camera)/urdf/_d435.urdf.xacro" />
+  <xacro:include filename="../../low_camera/_d435.urdf.xacro" />
   <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
   <xacro:include filename="$(find uos_common_urdf)/urdf/imu.gazebo.urdf.xacro" />
   <xacro:include filename="$(find sick_tim)/urdf/sick_tim.urdf.xacro" />
