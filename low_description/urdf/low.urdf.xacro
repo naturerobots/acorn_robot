@@ -6,6 +6,17 @@
   xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
   name="low">
 
+
+
+  <material name="grey">
+    <color rgba="0.7 0 0 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <xacro:include filename="$(find realsense2_camera)/urdf/_d435.urdf.xacro" />
   <xacro:include filename="$(find uos_common_urdf)/common.xacro" />
   <xacro:include filename="$(find uos_common_urdf)/urdf/imu.gazebo.urdf.xacro" />
   <xacro:include filename="$(find sick_tim)/urdf/sick_tim.urdf.xacro" />
@@ -74,7 +85,23 @@
     <parent link="base_footprint"/>
     <child link="base_link" />
   </joint>
-  
+
+
+
+<!--Attach Realsense D435 Camera to robot-->
+  <xacro:sensor_d435
+    suffix="front"
+    parent="base_link">
+    <origin xyz="0.09 0 0.1625" rpy="0 0 0" />
+  </xacro:sensor_d435>
+
+  <!--xacro:sensor_d435
+    suffix="back"
+    parent="base_link">
+    <origin xyz="-0.325 0 0.085" rpy=" 0 0 ${M_PI}" />
+  </xacro:sensor_d435-->
+
+
   <!--Wheel Macro-->
   <xacro:macro name="wheel" params="name parent xyz side">
     <link name="${name}_link">
@@ -184,7 +211,8 @@
             ${imu_offset_z}"
       rpy="${M_PI} 0 ${M_PI/2.0}" />
   </joint>
-  
+
+
   <!-- inertial measurement unit for gazebo -->
   <xacro:imu_gazebo link="imu" imu_topic="imu/data" update_rate="100.0" stdev="${imu_stdev}" />
 
