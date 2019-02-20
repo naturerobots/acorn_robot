@@ -1,2 +1,0 @@
-draco-ros
--DCATKIN_DEVEL_PREFIX=/home/steffen/low_robot/draco/devel -DCMAKE_INSTALL_PREFIX=/home/steffen/low_robot/draco/install -G Unix Makefiles
