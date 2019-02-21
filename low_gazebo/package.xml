@@ -12,6 +12,7 @@
   <license>BSD</license>
 
   <run_depend>low_description</run_depend>
+  <run_depend>low_camera</run_depend>
   <run_depend>controller_manager</run_depend>
   <run_depend>diffdrive_gazebo_plugin</run_depend>
   <run_depend>gazebo_ros_control</run_depend>
