@@ -5,11 +5,12 @@
   <arg name="paused" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="verbose" default="false"/>
-  <arg name="world" value="$(find uos_gazebo_worlds)/worlds/avz_collada.world"/> 
-
+  
   <!-- Start Gazebo with the given parameters -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(arg world)"/>
+
+  <!-- Start Gazebo with the given parameters -->
+    
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -43,4 +44,11 @@
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
     args="pub /calibrated std_msgs/Bool true" />
 
+
+
+  <!-- ##################### Spawn Artificial Maizeplant ########################## -->
+  <param name="artificial_maizefield_simple_description" command="$(find xacro)/xacro.py '$(find gazebo_models)urdf/maize/maizefield_simple_FRE18.urdf.xacro'" />
+
+  <node name="spawn_artificial_maizefield_simple" pkg="gazebo_ros" type="spawn_model"
+   args="-urdf -param artificial_maizefield_simple_description -model artificial_maizefield_model -x 8.500 -y 3.26 -z 0.0 -Y 1.556" respawn="false" output="screen" />
 </launch>
