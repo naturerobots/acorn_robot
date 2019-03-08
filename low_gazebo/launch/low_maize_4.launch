@@ -60,7 +60,7 @@ args="-urdf -param artificial_maizefield_simple_description -model artificial_ma
  <include file="$(find low_description)/launch/upload_low.launch"/>
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_low_model" pkg="gazebo_ros" type="spawn_model"
-    args=" -x -3.375 -y 8.38  -Y 1.597 -unpause -urdf -param robot_description
+    args=" -x -3.375 -y 8.38  -Y -1.597 -unpause -urdf -param robot_description
     -model low" respawn="false" output="screen"/>
 
 </launch>

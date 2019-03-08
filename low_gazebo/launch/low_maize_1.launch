@@ -41,12 +41,19 @@
     </rosparam>
   </node>
 
+
+
+
+
+
+
+
   <!-- Fake Calibration -->
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
     args="pub /calibrated std_msgs/Bool true" />
 
-
-
+  <!-- load Velodyne                         -->
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
 
 
 
@@ -61,7 +68,7 @@
  <include file="$(find low_description)/launch/upload_low.launch"/>
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_low_model" pkg="gazebo_ros" type="spawn_model"
-    args=" -x -3.375 -y 8.38  -Y 1.597 -unpause -urdf -param robot_description
+    args=" -x -3.375 -y 8.38  -Y -1.597 -unpause -urdf -param robot_description
     -model low" respawn="false" output="screen"/>
 
 </launch>
