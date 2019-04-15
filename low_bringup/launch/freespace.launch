@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="uos_freespace" type="uos_freespace" name="uos_freespace" output="screen">
+    <remap from="scan" to="scan_front" />
+  </node>
+
+</launch>

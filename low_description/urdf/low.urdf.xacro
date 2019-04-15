@@ -16,8 +16,8 @@
     <color rgba="0 0 0 1"/>
   </material>
 
-  <!--New Include D435-->
-  <xacro:include filename="$(find low_camera)/urdf/_d435.urdf.xacro" /> 
+  <!--New Include D435 realsense-->
+  <!-- <xacro:include filename="$(find low_camera)/urdf/_d435.urdf.xacro" /> -->
   <!--New Include VLP-16-->
   <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
 
@@ -94,11 +94,11 @@
 
 
 <!--Attach Realsense D435 Camera to robot-->
-  <xacro:sensor_d435
+  <!-- <xacro:sensor_d435
     suffix="front"
     parent="base_link">
     <origin xyz="0.09 0 0.1625" rpy="0 0 0" />
-  </xacro:sensor_d435>
+  </xacro:sensor_d435> -->
 
   <!--xacro:sensor_d435
     suffix="back"
