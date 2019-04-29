@@ -12,7 +12,7 @@
 ### Sensors
 <include file="$(find low_bringup)/launch/sick_tim.launch"/>
 <include file="$(find low_bringup)/launch/imu.launch"/>
-
+<include file="$(find low_bringup)/launch/motor_driver.launch" />
 
 
 
