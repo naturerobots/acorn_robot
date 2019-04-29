@@ -2,6 +2,7 @@
 <launch>
   <node name="sick_tim551_front" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
 
+    <remap from="scan" to="scan_front" />
     <param name="frame_id" type="str" value="laser_front" />
     <!-- default values: -->
     <!--
@@ -33,6 +34,7 @@
 
   <node name="sick_tim551_back" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
 
+    <remap from="scan" to="scan_back" />
     <param name="frame_id" type="str" value="laser_back" />
     <!-- default values: -->
     <!--
