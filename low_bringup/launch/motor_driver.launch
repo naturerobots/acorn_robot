@@ -4,5 +4,8 @@
     <node pkg="cornholio2_differential_drive" type="cornholio2_differential_drive_node" name="cornholio2_differential_drive_node" output="screen">
 	<param name="rate" type="double" value="20.0"/>
 	<param name="timeout" type="double" value="0.5" />
+        <param name="wheel_radius" type="double" value="0.15"/>
+        <param name="axis_length" type="double" value="0.4" />
+        <param name="publish_tf" type="bool" value="true" />
     </node>
 </launch>
