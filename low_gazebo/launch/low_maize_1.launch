@@ -23,6 +23,14 @@
   <!-- Push robot_description to factory and spawn robot in gazebo -->
   <!--<include file="$(find low_gazebo)/launch/spawn_low.launch" /> -->
   
+  <!-- scan merger -->
+  <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+		<param name="destination_frame" value="/base_link"/>
+		<param name="cloud_destination_topic" value="/cloud"/>
+		<param name="scan_destination_topic" value="/scan"/>
+    <param name="laserscan_topics" value="/scan_front /scan_back" /> 
+	</node>
+
   <!-- EKF -->
   <include file="$(find low_gazebo)/launch/ekf.launch"/>
 
@@ -43,11 +51,6 @@
 
 
 
-
-
-
-
-
   <!-- Fake Calibration -->
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
     args="pub /calibrated std_msgs/Bool true" />
@@ -58,7 +61,7 @@
 
 
   <!-- ##################### Spawn Artificial Maizeplant ########################## -->
-  <param name="artificial_maizefield_simple_description" command="$(find xacro)/xacro.py '$(find low_gazebo)urdf/maize/maizefield_simple_FRE18.urdf.xacro'" />
+  <param name="artificial_maizefield_simple_description" command="$(find xacro)/xacro.py '$(find low_gazebo)/urdf/maize/maizefield_simple_FRE18.urdf.xacro'" />
 
   <node name="spawn_artificial_maizefield_simple" pkg="gazebo_ros" type="spawn_model"
    args="-urdf -param artificial_maizefield_simple_description -model artificial_maizefield_model -x 0.0 -y 0.0 -z 0.0 -Y 0.0" respawn="false" output="screen" />

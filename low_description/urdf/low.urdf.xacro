@@ -181,11 +181,15 @@
   
   <xacro:sick_tim551
     name="laser_front"
-    ros_topic="/scan_front" />
+    ros_topic="/scan_front"
+    min_angle="${-M_PI/2.0}"
+    max_angle="${M_PI/2.0}" />
 
   <xacro:sick_tim551
     name="laser_back"
-    ros_topic="/scan_back" />
+    ros_topic="/scan_back"
+    min_angle="${-M_PI/2.0}"
+    max_angle="${M_PI/2.0}" />
 
  
   <joint name="laser_front_base_joint" type="fixed">
