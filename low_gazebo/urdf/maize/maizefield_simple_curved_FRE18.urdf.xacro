@@ -2,7 +2,7 @@
 
 <robot name="GazeboModel" xmlns:xacro="http://ros.org/wiki/xacro">
 
-<xacro:include filename="$(find gazebo_models)/common.xacro" />   
+<xacro:include filename="$(find gazebo_models)/urdf/common.xacro" />   
  
 <xacro:maizefield_model name="maizefield"/> 
   

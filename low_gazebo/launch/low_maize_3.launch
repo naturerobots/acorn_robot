@@ -44,7 +44,7 @@
 
 
   <!-- ##################### Spawn Artificial Maizeplant ########################## -->
-  <param name="artificial_maizefield_simple_description" command="$(find xacro)/xacro.py '$(find low_gazebo)urdf/maize/maizefield_simple_curved_FRE18.urdf.xacro'" />
+  <param name="artificial_maizefield_simple_description" command="$(find xacro)/xacro.py '$(find low_gazebo)/urdf/maize/maizefield_simple_curved_FRE18.urdf.xacro'" />
 
   <node name="spawn_artificial_maizefield_simple" pkg="gazebo_ros" type="spawn_model"
    args="-urdf -param artificial_maizefield_simple_description -model artificial_maizefield_model -x 0.0 -y 0.0 -z 0.0 -Y 0.0" respawn="false" output="screen" />
