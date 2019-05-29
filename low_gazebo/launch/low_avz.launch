@@ -43,4 +43,17 @@
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
     args="pub /calibrated std_msgs/Bool true" />
 
+
+  <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+		<param name="destination_frame" value="/base_link"/>
+		<param name="cloud_destination_topic" value="/cloud_merged"/>
+		<param name="scan_destination_topic" value="/scan_merged"/>
+    <param name="laserscan_topics" value="/scan_front /scan_back /scan" /> 
+
+    <param name="angle_min" type="double" value="-3.14"/>
+    <param name="angle_max" type="double" value="3.14"/>
+    <param name="range_min" type="double" value="0.4"/>
+    <param name="range_max" type="double" value="1000" />
+	</node>
+
 </launch>
