@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+### Upload LOW to parameter server
+<include file="$(find acorn_description)/launch/upload_acorn.launch"/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />  
+
+<!-- Joint State Publisher -->
+<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+</node>
+
+### Sensors
+<include file="$(find acorn_bringup)/launch/sick_tim.launch"/>
+<include file="$(find acorn_bringup)/launch/imu.launch"/>
+<include file="$(find acorn_bringup)/launch/motor_driver.launch" />
+<include file="$(find acorn_bringup)/launch/ekf.launch" />
+<include file="$(find acorn_bringup)/launch/velodyne.launch" />
+
+
+
+
+</launch>

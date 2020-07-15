@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find acorn_description)/launch/upload_acorn.launch"/>
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_acorn_model" pkg="gazebo_ros" type="spawn_model"
+    args=" -x 0 -y 0  -Y 0 -unpause -urdf -param robot_description
+    -model acorn" respawn="false" output="screen"/>
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+
+<node pkg="uos_freespace" type="uos_freespace" name="uos_freespace" output="screen">
+
+<remap from="scan" to="scan_front"/>
+<param name="max_rotational_vel_" value="2.0" />
+<param name="max_vel_x_" value="0.4" />
+
+</node>
+
+</launch>

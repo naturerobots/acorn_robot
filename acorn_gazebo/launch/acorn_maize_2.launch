@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Gazebo Parameters -->
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  
+  <!-- Start Gazebo with the given parameters -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+  <!-- Start Gazebo with the given parameters -->
+    
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/> 
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+  </include>
+  
+  <!-- EKF -->
+  <include file="$(find acorn_gazebo)/launch/ekf.launch"/>
+
+  <!-- Robot State Publisher -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="150.0" />
+    <param name="tf_prefix" type="string" value="" />
+  </node>
+
+  <!-- Joint State Publisher -->
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <rosparam>
+      zeros:
+        pico_flex_angle : 0.0
+    </rosparam>
+  </node>
+
+  <!-- Fake Calibration -->
+  <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
+    args="pub /calibrated std_msgs/Bool true" />
+
+
+
+  <!-- ##################### Spawn Artificial Maizeplant ########################## -->
+  <param name="artificial_maizefield_simple_description" command="$(find xacro)/xacro.py '$(find acorn_gazebo)/urdf/maize/maizefield_simple_var_FRE18.urdf.xacro'" />
+
+  <node name="spawn_artificial_maizefield_simple" pkg="gazebo_ros" type="spawn_model"
+   args="-urdf -param artificial_maizefield_simple_description -model artificial_maizefield_model -x 0.0 -y 0.0 -z 0.0 -Y 0.0" respawn="false" output="screen" />
+
+  <!-- Spawn the robot model -->
+  <include file="$(find acorn_description)/launch/upload_acorn.launch"/>
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_acorn_model" pkg="gazebo_ros" type="spawn_model"
+    args="-x -3.375 -y -8.38  -Y 1.597 -unpause -urdf -param robot_description
+    -model acorn" respawn="false" output="screen"/>
+
+</launch>
