@@ -203,6 +203,22 @@
     <child link="laser_back_mount_link" />
     <origin xyz="-${laser_x} 0 ${laser_z}" rpy="${M_PI} 0 ${M_PI}"/>
   </joint>
+
+  <!-- loal -->
+  <link name="camera_base"/>
+  <joint name="camera_base_joint" type="fixed">
+    <parent link="velodyne" />
+    <child link="camera_base" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="camera"/>
+  <joint name="camera_joint" type="fixed">
+    <parent link="camera_base" />
+    <child link="camera" />
+    <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+  </joint>
+  <!-- loal end -->
   
   <link name="imu">
     <visual>
