@@ -207,16 +207,16 @@
   <!-- loal -->
   <link name="camera_base"/>
   <joint name="camera_base_joint" type="fixed">
-    <parent link="velodyne" />
-    <child link="camera_base" />
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="camera_base" />
+    <child link="base_footprint" />
+    <origin xyz="0 0 ${axis_height - wheel_radius - 0.205}" rpy="0 0 0"/>
   </joint>
 
   <link name="camera"/>
   <joint name="camera_joint" type="fixed">
-    <parent link="camera_base" />
-    <child link="camera" />
-    <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+    <parent link="camera" />
+    <child link="camera_base" />
+    <origin xyz="0 0 0" rpy="-1.570795 -1.570795 0"/>
   </joint>
   <!-- loal end -->
   
